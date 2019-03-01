@@ -38,7 +38,7 @@ MyString::MyString(const char *other)
 // parameters: MyString
 // return type: none
 //================================================================================
-MyString::MyString(MyString &other)
+MyString::MyString(const MyString &other)
 {
 	if (other.str != nullptr)
 	{
@@ -192,7 +192,7 @@ const char* MyString::c_str()
 //================================================================================
 ostream &operator << (ostream& strm, MyString& other)
 {
-	if (other == nullptr)
+	if (other.c_str() == nullptr)
 	{
 		strm << " ";
 	}

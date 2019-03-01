@@ -13,12 +13,12 @@ ostream &operator << (ostream&, MyString&);
 class MyString 
 {
 	private:
-		char* str;
-		char* addStr;
+		char* str;			// holds the c-string
+		char* addStr;		// string to hold the strcat data
 
 	public:
 		MyString();
-		MyString(MyString &other);
+		MyString(const MyString &other);
 		MyString(const char* str);
 		~MyString();
 		const char * c_str();
