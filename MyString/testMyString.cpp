@@ -47,7 +47,7 @@ int main()
 	MyString String13 = String9 + String10;
 	 cout << String13 << endl;
 
-	// check String Comparison
+	// check String Comparisons
 	 cout << "test string comparison operator" << endl;
 	MyString String5("Bob");
 	MyString String6("Bob");
