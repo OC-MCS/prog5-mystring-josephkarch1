@@ -3,11 +3,21 @@
 
 using namespace std;
 
+///===============================================================================
+// MyString(): default constructor. sets str to nullptr 
+// parameters: none
+// return type: none
+//================================================================================
 MyString::MyString()
 {
 	str = nullptr;
 }
 
+///===============================================================================
+// MyString(): copy constructor. copies a c string
+// parameters: const char* 
+// return type: none
+//================================================================================
 MyString::MyString(const char *other)
 {
 	if (other != nullptr)
@@ -23,7 +33,11 @@ MyString::MyString(const char *other)
 	}
 
 }
-
+///===============================================================================
+// MyString(): copy constructor. copies a MyString
+// parameters: MyString
+// return type: none
+//================================================================================
 MyString::MyString(MyString &other)
 {
 	if (other.str != nullptr)
@@ -37,17 +51,25 @@ MyString::MyString(MyString &other)
 		str = nullptr; 
 	}
 
-
-
 }
 
+///===============================================================================
+// ~MyString(): destructor
+// parameters: none
+// return type: none
+//================================================================================
 MyString::~MyString()
 {
 	delete[] str;
 	cout << "My Destructor works!" << endl;
 }
 
-MyString MyString::operator= (const MyString &other)
+///===============================================================================
+// operator= this overloads the = operator.  
+// parameters: const MyString
+// return type: MyString
+//================================================================================
+MyString MyString::operator = (const MyString &other)
 {
 	if (this != &other)
 	{
@@ -69,9 +91,14 @@ MyString MyString::operator= (const MyString &other)
 	return *this;
 }
 
-MyString MyString::operator+(const MyString &other)
+///===============================================================================
+// operator+ this overloads the + operator.  
+// parameters: const MyString
+// return type: MyString
+//================================================================================
+MyString MyString::operator + (const MyString &other)
 {
-	char * tempStr;
+	char* tempStr;
 	
 	if (str == nullptr && other.str == nullptr)
 	{
@@ -93,13 +120,22 @@ MyString MyString::operator+(const MyString &other)
 	else
 	{
 		tempStr = new char[strlen(str) + strlen(other.str) + 2];
-		strcpy_s(tempStr, strlen(str) + strlen(other.str) +2, str);
+		strcpy_s(tempStr, strlen(str) + strlen(other.str) + 2, str);
 		strcat_s(tempStr, strlen(str) + strlen(other.str) + 2, other.str);
 	}
-	return tempStr;
+
+	MyString tempString(tempStr);
+	
 	delete[] tempStr;
+
+	return tempString;
 }
 
+///===============================================================================
+// operator== this overloads the == operator.  
+// parameters: const MyString
+// return type: bool
+//================================================================================
 bool MyString::operator==(const MyString &other)
 {
 	bool temp;
@@ -135,13 +171,25 @@ bool MyString::operator==(const MyString &other)
 	return temp;
 }
 
+///===============================================================================
+// c_str() this is a getter function that returns the string
+// parameters: none
+// return type: const char*
+//================================================================================
 const char* MyString::c_str()
 {
 	const char* newStr = str;
 
 	return newStr;
+
+	delete[] newStr;
 }
 
+///===============================================================================
+// &operator << this overlaods the << operator
+// parameters: ostream& and MyString
+// return type: ostream
+//================================================================================
 ostream &operator << (ostream& strm, MyString& other)
 {
 	if (other == nullptr)

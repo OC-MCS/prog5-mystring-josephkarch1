@@ -19,11 +19,11 @@ class MyString
 	public:
 		MyString();
 		MyString(MyString &other);
-		MyString(const char * str);
+		MyString(const char* str);
 		~MyString();
 		const char * c_str();
-		MyString operator= (const MyString &other);
-		MyString operator+ (const MyString &other);
+		MyString operator = (const MyString &other);
+		MyString operator + (const MyString &other);
 		bool operator== (const MyString &other);
 		
 };

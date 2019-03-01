@@ -11,7 +11,6 @@ int main()
 	MyString String2(String1);
 	cout << String2.c_str() << endl;
 
-
 	// test assignment operator
 	MyString String3("Fred");	
 	MyString String4 = String3;
@@ -27,10 +26,10 @@ int main()
 	
 	cout << String9.c_str() << endl;
 	cout << String10.c_str() << endl;
-	
-	MyString String11 = String9 + String10;
-	cout << String11.c_str() << endl;
-	
+
+	MyString String13 = String9 + String10;
+	 cout << String13 << endl;
+
 	// check String Comparison
 	MyString String5("Bob");
 	MyString String6("Bob");
@@ -41,7 +40,8 @@ int main()
 	}
 
 	// check overloaded output operator
-	cout << String6 << endl;
+	MyString String12 = "Overloaded output operator";
+	cout << String12 << endl;
 
 
 	return 0;
