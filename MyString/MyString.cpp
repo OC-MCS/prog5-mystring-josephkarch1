@@ -3,6 +3,8 @@
 
 using namespace std;
 
+// added this comment to make it push
+
 ///===============================================================================
 // MyString(): default constructor. sets str to nullptr 
 // parameters: none
